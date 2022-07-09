@@ -27,7 +27,6 @@
   }
   a{
     color: white;
-    text-decoration: none;
   }
   .split-screen {
     display: flex;
@@ -46,7 +45,7 @@
   }
   .left {
     background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1)),
-      url("../../public/images/login.png");
+      url("/images/login.png");
     background-size: cover;
   }
   .right .copy {
