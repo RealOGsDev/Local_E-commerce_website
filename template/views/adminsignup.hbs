@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="stylesheet" href="css/adminsignup.css">
+    <link rel="stylesheet" href="/css/adminsignup.css">
 </head>
 
 <body>
@@ -13,40 +13,49 @@
         <div class="form">
             <div class="user-detail">
                 <div class="input-box">
-                    <span class="details">Full Name</span>
+                    <span class="details">Admin's full Name</span>
                     <input type="text" id="fName" placeholder="Name" required>
                 </div>
-               
-                
                 <div class="input-box">
-                    <span class="details">Personal Number</span>
-                    <input type="text" id="perNo" placeholder="Number" required>
+                    <span class="details">Mobile Number</span>
+                    <input type="text" id="phno"  required>
                 </div>
                 <div class="input-box">
                     <span class="details">Email</span>
-                    <input type="email" id="gname" placeholder="abc@gmail.com" required>
+                    <input type="email" id="email" placeholder="Eg: abc@gmail.com" required>
                 </div>
-                
                 <div class="input-box">
-                    <span class="details">Address</span>
-                    <input type="text" id="altnum" placeholder="address" required>
+                    <span class="details">Shop's name</span>
+                    <input type="text" id="sname" placeholder="" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Shop's address</span>
+                    <input type="text" id="add" placeholder="" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Category</span>
-                    <input type="text" id="state" placeholder="Eg :Food" required>
+                    <input type="text" id="category" placeholder="Eg: clothes,food" required>
+                </div>
+                
+                
+                
+                
+                
+                <div class="input-box">
+                    <span class="details">Choose shop's image</span>
+                    <input type="file" id="pic"  required>
                 </div>
                
-                
             </div>
-            <div class="button" >
+            <div class="button">
                 <input type="submit" id="subtn"  name="Submit" value="Register">
                 
             </div>
-           
         </div>
     </div>
 </body>
 
 
+   
 
 </html>
