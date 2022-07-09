@@ -11,12 +11,12 @@ body {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background-color: #e1eedd;
+  background-color: #b2b0e4;
 }
 .title {
   display: block;
   width: 100%;
-  background: #f6c453;
+  background: #6C63FF;
   color: black;
   font-weight: 500;
   border: none;
@@ -33,7 +33,7 @@ body {
   background: #fff;
   padding: 25px 30px;
   border-radius: 5px;
-  border-color: #f6c453;
+  border-color: #6C63FF;
 }
 .container .title {
   font-size: 25px;
@@ -80,7 +80,7 @@ body {
 }
 .user-detail .input-box input:focus,
 .user-detail .input-box input:valid {
-  border-color: #f6c453;
+  border-color: #6C63FF;
 }
 #image-input{
   margin-left: 38%;
@@ -104,8 +104,8 @@ body {
   font-size: 18px;
   font-weight: 500;
  
-  background: #f6c453;
-  border-color: #f6c453;
+  background: #6C63FF;
+  border-color: #5148ff;
   border-radius: 5px;
    
   padding: 10px;
@@ -113,7 +113,7 @@ body {
  
 }
 .button input:hover {
-  background: #f6c453;
+  background: #4d44ff;
 }
 @media (max-width: 584px) {
   .container {

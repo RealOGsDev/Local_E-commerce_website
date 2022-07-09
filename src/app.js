@@ -18,6 +18,10 @@ app.get("/signup", (req, res) => {
   res.render("usersignup");
 });
 
+app.get("/adminregister", (req, res) => {
+  res.render("adminsignup");
+});
+
 app.get("/shops", (req, res) => {
   res.render("shops");
 });
