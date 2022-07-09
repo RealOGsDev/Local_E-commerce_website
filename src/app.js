@@ -21,6 +21,12 @@ app.get("/signup", (req, res) => {
 app.get("/adminregister", (req, res) => {
   res.render("adminsignup");
 });
+app.get("/adminlogin", (req, res) => {
+  res.render("adminlogin");
+});
+app.get("/dashboard", (req, res) => {
+  res.render("dashboard");
+});
 
 app.get("/shops", (req, res) => {
   res.render("shops");
