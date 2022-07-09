@@ -1,15 +1,14 @@
-<!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="stylesheet" href="/css/adminsignup.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/addnew.css" />
+  </head>
 
-<body>
-    <div class="container">
-        <div class="title">Admin Registration</div>
+  <body>
+    {{! <div class="container">
+        <div class="title">Add new products</div>
         <div class="form">
             <div class="user-detail">
                 <div class="input-box">
@@ -54,10 +53,36 @@
             <br>
             <br>
         </div>
+    </div> }}
+
+    <div id="head">
+      <h1>Add new products</h1>
     </div>
-</body>
-<script src="location.js"></script>
 
-   
-
+    <div class="main">
+      <br />
+      <div class="input-box">
+        <span class="details">Product name</span>
+        <input type="text" id="pname" placeholder="Eg:fruits" required />
+      </div>
+      <div class="input-box">
+        <span class="details">Product description</span>
+        <textarea rows="5" cols="38"></textarea>
+      </div>
+      <div class="input-box">
+        <span class="details">MRP in &#8377;</span>
+        <input type="number" id="mrp" placeholder="Eg:500" required />
+      </div>
+      <div class="input-box">
+        <span class="details">Contact number of shopkeeper</span>
+        <input type="text" id="cno" placeholder="" required />
+      </div>
+      <div class="input-box">
+        <span class="details">Image</span>
+        <input type="file" id="pimg" placeholder="" required />
+      </div>
+      <button class="register-btn" id="subtn" type="submit">Save </button>
+    </div>
+    <br />
+  </body>
 </html>
