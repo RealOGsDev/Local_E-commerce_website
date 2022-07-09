@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0%;
+    box-sizing: 0;
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: "Poppins", sans-serif;
+    background-color: #d6d6e3;
+    /* scrollbar-width: 5px;
+    scrollbar-color: #6C63FF; */
+  }
+  body::-webkit-scrollbar {
+    width: 0.3rem;
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: #6C63FF;
+  }
+  body::-webkit-scrollbar-track {
+    background-color: white;
+  }
+  
+ 
+  a {
+    text-decoration: none;
+    color: rgb(12, 12, 12);
+  }
+ 
+  
+  
+  img {
+    height: 240px;
+    width: 240px;
+  }
+  .category {
+   margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .im{
+  
+    height: 240px;
+    width: 240px;
+    margin: auto;
+    transition: transform 0.5s ;
+  }
+  a{
+    height: 260px;
+    width: 260px;
+   
+    text-align: center;
+    padding: 10px 10px;
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+    cursor:pointer;
+    
+    background-color: rgb(231, 231, 240);
+    border-radius: 2px;
+  }
+  #head{
+    text-align: center;
+    margin-top: 40px;
+    font-size: 26px;
+  }
