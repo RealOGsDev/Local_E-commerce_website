@@ -84,7 +84,6 @@
         var email = document.getElementById('email').value
         var img = document.getElementById('pic').value
         var add = document.getElementById('add').value
-        var password = document.getElementById('password').value;
 
         const imgref = sref(storage, `images/${img.name}`)
         console.log(img)
@@ -101,10 +100,10 @@
             address: add
         })
     });
+        window.open("/dashboard", "_self")
 </script>
 
 </html>
-        {{!-- window.open("/dashboard", "_self") --}}
 {{!-- createUserWithEmailAndPassword(auth, email, password)
 .then((userCredential) => {
 const user = userCredential.user;
