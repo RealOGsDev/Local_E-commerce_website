@@ -31,6 +31,9 @@ app.get("/dashboard", (req, res) => {
 app.get("/shops", (req, res) => {
   res.render("shops");
 });
+app.get("/product", (req, res) => {
+  res.render("products");
+});
 
 app.get("/addnew", (req, res) => {
   res.render("addnew");

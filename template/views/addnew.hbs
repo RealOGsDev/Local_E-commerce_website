@@ -1,88 +1,82 @@
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/addnew.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/addnew.css" />
+</head>
 
-  <body>
-    {{! <div class="container">
-        <div class="title">Add new products</div>
-        <div class="form">
-            <div class="user-detail">
-                <div class="input-box">
-                    <span class="details">Admin's full Name</span>
-                    <input type="text" id="fName" placeholder="Name" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Mobile Number</span>
-                    <input type="text" id="phno"  required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Email</span>
-                    <input type="email" id="email" placeholder="Eg: abc@gmail.com" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Shop's name</span>
-                    <input type="text" id="sname" placeholder="" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Shop's address</span>
-                    <input type="text" id="add" placeholder="" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Category</span>
-                    <input type="text" id="category" placeholder="Eg: clothes,food" required>
-                </div>
-                
-                
-                
-                
-                
-                <div class="input-box">
-                    <span class="details">Choose shop's image</span>
-                    <input type="file" id="pic"  required>
-                </div>
-               
-            </div>
-            <div class="button">
-                <input type="submit" id="subtn"  name="Submit" value="Register">
-                
-            </div>
-            <br>
-            <br>
-        </div>
-    </div> }}
+<body>
+  <div id="head">
+    <h1>Add new products</h1>
+  </div>
 
-    <div id="head">
-      <h1>Add new products</h1>
-    </div>
-
-    <div class="main">
-      <br />
-      <div class="input-box">
-        <span class="details">Product name</span>
-        <input type="text" id="pname" placeholder="Eg:fruits" required />
-      </div>
-      <div class="input-box">
-        <span class="details">Product description</span>
-        <textarea rows="5" cols="38"></textarea>
-      </div>
-      <div class="input-box">
-        <span class="details">MRP in &#8377;</span>
-        <input type="number" id="mrp" placeholder="Eg:500" required />
-      </div>
-      <div class="input-box">
-        <span class="details">Contact number of shopkeeper</span>
-        <input type="text" id="cno" placeholder="" required />
-      </div>
-      <div class="input-box">
-        <span class="details">Image</span>
-        <input type="file" id="pimg" placeholder="" required />
-      </div>
-      <button class="register-btn" id="subtn" type="submit">Save </button>
-    </div>
+  <div class="main">
     <br />
-  </body>
+    <div class="input-box">
+      <span class="details">Product name</span>
+      <input type="text" id="pname" placeholder="Eg:fruits" required />
+    </div>
+    <div class="input-box">
+      <span class="details">Product description</span>
+      <textarea rows="5" cols="38" id="prodes"></textarea>
+    </div>
+    <div class="input-box">
+      <span class="details">MRP in &#8377;</span>
+      <input type="number" id="mrp" placeholder="Eg:500" required />
+    </div>
+    <div class="input-box">
+      <span class="details">Contact number of shopkeeper</span>
+      <input type="text" id="cno" placeholder="" required />
+    </div>
+    <div class="input-box">
+      <span class="details">Image</span>
+      <input type="file" id="pimg" placeholder="" required />
+    </div>
+    <button class="register-btn" id="subtn" type="submit">Save </button>
+  </div>
+  <br />
+</body>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
+  import { getDatabase, set, ref, push } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
+  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBPhHeE4Mql11NDIQuBmFr9gK97gfd16zE",
+    authDomain: "hackerzstreet-48926.firebaseapp.com",
+    projectId: "hackerzstreet-48926",
+    storageBucket: "hackerzstreet-48926.appspot.com",
+    messagingSenderId: "412284422679",
+    appId: "1:412284422679:web:3cd8cd42fa5146d3486a52"
+  };
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+  const auth = getAuth(app)
+  var id=0;
+  subtn.addEventListener('click', (err) => {
+    console.log("hello")
+    var cno = document.getElementById('cno').value
+    var mrp = document.getElementById('mrp').value
+    var prodes = document.getElementById('prodes').value
+    var pname = document.getElementById('pname').value
+    var pimg = document.getElementById('pimg').value
+
+    set(ref(database, 'products/' + cno + id), {
+      cno: cno,
+      mrp : mrp,
+      prodes : prodes,
+      pname: pname,
+      pimg: pimg,
+    })
+    window.open("/dashboard", "_self")
+  });
+</script>
+
 </html>
