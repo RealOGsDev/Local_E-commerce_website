@@ -2,45 +2,51 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>geolocation</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>geolocation</title>
 </head>
 
 <body>
-    
-<script>
- 
-    const successCallback=(position)=>{
-        alert(position);
+  <script type="module">
+    import { lat2, lon2 } from '../location.js'
+    var a, b;
+    a = await lat2;
+    b = await lon2;
+    var lat1, lon1;
+    const successCallback = async (position) => {
+      lat1 = await position.coords.latitude;
+      lon1 = await position.coords.longitude;
       console.log(position);
-      const lat1=position.coords.latitude;
-      const lon1=position.coords.longitude;
-     
+      await calculate(a,b,lat1,lon1);
     }
-    const errorCallback=(error)=>{
-        alert(error);
-      console.log(error);  
+    const errorCallback = (error) => {
+      console.log(error);
     }
-    navigator.geolocation.getCurrentPosition(successCallback,errorCallback);
+    function calculate(a,b,lat1,lon1){
+      console.log(lat1+lon1)
+      const R = 6371e3; // metres
+      const φ1 = lat1 * Math.PI / 180; // φ, λ in radians
+      const φ2 = lat2 * Math.PI / 180;
+      const Δφ = (lat2 - lat1) * Math.PI / 180;
+      const Δλ = (lon2 - lon1) * Math.PI / 180;
+      
+      const ab = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+      Math.cos(φ1) * Math.cos(φ2) *
+      Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+      const c = 2 * Math.atan2(Math.sqrt(ab), Math.sqrt(1 - ab));
+      
+      const d = R * c; // in metres
+      const  km = d / 1000; //in km
+      console.log(km)
+    }
+    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 
-    const R = 6371e3; // metres
-const φ1 = lat1 * Math.PI/180; // φ, λ in radians
-const φ2 = lat2 * Math.PI/180;
-const Δφ = (lat2-lat1) * Math.PI/180;
-const Δλ = (lon2-lon1) * Math.PI/180;
 
-const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
-          Math.cos(φ1) * Math.cos(φ2) *
-          Math.sin(Δλ/2) * Math.sin(Δλ/2);
-const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 
-const d = R * c; // in metres
-const km=d/1000; //in km
-
-</script>
+  </script>
 </body>
 
 </html>

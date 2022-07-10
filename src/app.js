@@ -32,6 +32,11 @@ app.get("/shops", (req, res) => {
   res.render("shops");
 });
 
+app.get("/addnew", (req, res) => {
+  res.render("addnew");
+});
+
+
 
 app.listen(port, () => {
     console.log("listening");
