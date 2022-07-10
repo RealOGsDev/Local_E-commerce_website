@@ -40,10 +40,6 @@
                     <span class="details">Choose shop's image</span>
                     <input type="file" id="pic" required>
                 </div>
-                <div class="input-box">
-                    <span class="details">Password</span>
-                    <input type="password" id="password" required>
-                </div>
             </div>
             <div class="button">
                 <input type="submit" id="subtn" name="Submit" value="Register">
@@ -54,11 +50,13 @@
         </div>
     </div>
 </body>
+<script src="location.js"></script>
 <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
     import { getDatabase, set, ref, push } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
     import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
+    import { ref as sref, getStorage, uploadBytes } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-storage.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
     // Your web app's Firebase configuration
@@ -75,6 +73,8 @@
     const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
     const auth = getAuth(app)
+    const storage = getStorage(app)
+
     subtn.addEventListener('click', (err) => {
         console.log("hello")
         var adname = document.getElementById('fName').value
@@ -86,6 +86,11 @@
         var add = document.getElementById('add').value
         var password = document.getElementById('password').value;
 
+        const imgref = sref(storage, `images/${img.name}`)
+        console.log(img)
+        uploadBytes(imgref, img).then(alert("Done"))
+
+
         set(ref(database, 'category/' + cat + '/' + phno), {
             adname: adname,
             cat: cat,
@@ -95,17 +100,18 @@
             img: img,
             address: add
         })
-        window.open("/dashboard", "_self")
     });
 </script>
+
 </html>
-        {{!-- createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(error)
-                alert("Please check your password or email")
-            }); --}}
+        {{!-- window.open("/dashboard", "_self") --}}
+{{!-- createUserWithEmailAndPassword(auth, email, password)
+.then((userCredential) => {
+const user = userCredential.user;
+})
+.catch((error) => {
+const errorCode = error.code;
+const errorMessage = error.message;
+console.log(error)
+alert("Please check your password or email")
+}); --}}

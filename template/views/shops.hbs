@@ -44,41 +44,51 @@
       Electronics</a>
   </div>
   <div class="main">
+    <br>
     <h1>Food</h1>
+    <hr>
     <div id="Food">
-      <div class="card" id="card1">
+      <div class="card" id="">
+        <a href="/product" id="card1">
         
+        </a>
       </div>
       <div class="card">
-
-      </div>
-      <div class="card">
+        <img src="/images/shop2.png" alt="">
+        <br>
+        <h1>Kapture Food</h1>
 
       </div>
     </div>
+    <br>
     <h1>Clothes</h1>
+    <hr>
     <div id="Cloth">
       <div class="card">
-
-      </div>
-      <div class="card">
-
-      </div>
-      <div class="card">
-
+        <img src="/images/shop1.png" alt="">
+        <br>
+        <h1>Mahesh Cloth</h1>
       </div>
     </div>
+    <br>
     <h1>Grocery</h1>
+    <hr>
     <div id="Grocery">
       <div class="card">
-
+        <img src="/images/shop4.png" alt="">
+        <br>
+        <h1>Atta Dal</h1>
       </div>
 
     </div>
+    <br>
     <h1>Electronics</h1>
+    <hr>
     <div id="electro">
       <div class="card">
-
+                <img src="/images/shop5.png" alt="">
+        <br>
+        <h1>Gada Electronics</h1>
       </div>
     </div>
   </div>
@@ -212,7 +222,8 @@
   var img1path
   get(child(dbref, 'category/' + 'Food' + '/06295851328')).then((snapshot) => {
     if (snapshot.exists()) {
-      document.getElementById('card1').innerHTML = `<img src="${snapshot.val().img}" alt="">` + snapshot.val().sname
+      document.getElementById('card1').innerHTML = `<img src="${snapshot.val().img}" alt="">` + `<br>
+        <h1>${snapshot.val().sname}</h1>`
 
       img1path = snapshot.val().img
       console.log(img1path)
